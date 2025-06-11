@@ -1,0 +1,56 @@
+{
+  "name": "React-Development",
+  "service": "frontend",
+  "dockerComposeFile": "compose.yml",
+  "workspaceFolder": "/frontend",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // React & JavaScript/TypeScript
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-json",
+        "ms-vscode.vscode-eslint",
+        "esbenp.prettier-vscode",
+        // React specific
+        "dsznajder.es7-react-js-snippets",
+        "formulahendry.auto-rename-tag",
+        "ms-vscode.vscode-react-native",
+        // Git & Development
+        "mhutchie.git-graph",
+        // Theme & UI
+        "zhuangtongfa.material-theme"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+        "emmet.includeLanguages": {
+          "javascript": "javascriptreact",
+          "typescript": "typescriptreact"
+        },
+        "emmet.triggerExpansionOnTab": true,
+        "javascript.updateImportsOnFileMove.enabled": "always",
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "eslint.validate": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
+        "prettier.semi": true,
+        "prettier.singleQuote": true,
+        "prettier.trailingComma": "es5"
+      }
+    }
+  },
+  "postCreateCommand": "sudo chown -R node:node /frontend* && sudo chmod -R 775 /frontend* && npm install ",
+  "remoteUser": "node",
+  "forwardPorts": [3000]
+}

@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/frontend:cached
+      - node_modules:/home/node/frontend/node_modules
+      - ~/.ssh:/home/node/.ssh
+    init: true
+    command: sleep infinity
+    ports:
+      - '3000:3000'
+    networks:
+      - network
+
+volumes:
+  node_modules:
+
+networks:
+  network:
+    driver: bridge
