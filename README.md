@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+# React Frontend (Devcontainer + EC2)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このリポジトリは、EC2 上で Devcontainer + Docker を用いて構築された React フロントエンド環境です。  
+Vite + TypeScript + Tailwind CSS + ShadCN UI によって、モダンで高速なフロントエンド開発が可能です。
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 技術スタック
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ShadCN UI](https://ui.shadcn.dev/)
+- [React Router](https://reactrouter.com/)
+- Dev Container + Docker 開発環境
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🐳 Devcontainer 構成
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+本リポジトリは `devcontainer` を使っており、VSCode Remote Containers（または Codespaces）で開くことで、すぐに開発が始められます。
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### ✅ 特徴
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- `Vite` サーバーが `0.0.0.0:3000` にバインドされており、外部（ローカルブラウザ）からアクセス可能
+- `docker-compose` によりポート 3000 がホスト（EC2）とフォワード済み
+- `devcontainer.json` にて `"forwardPorts": [3000]` 設定済み
+- EC2 セキュリティグループにて 3000 番ポート開放済み（開発用途）
+
+---
+
+## 🔧 開発手順（EC2 上で）
+
+1. VSCode + Remote-SSH で EC2 に接続
+2. VSCode 上で Devcontainer が自動起動
+3. 以下のコマンドでアプリを起動：
+
+```bash
+npm install
+npm run dev
 ```
