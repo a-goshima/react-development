@@ -5,7 +5,7 @@ Vite + TypeScript + Tailwind CSS + ShadCN UI によって、モダンで高速�
 
 ---
 
-## 🚀 技術スタック
+## 技術スタック
 
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
@@ -17,11 +17,7 @@ Vite + TypeScript + Tailwind CSS + ShadCN UI によって、モダンで高速�
 
 ---
 
-## 🐳 Devcontainer 構成
-
-本リポジトリは `devcontainer` を使っており、VSCode Remote Containers（または Codespaces）で開くことで、すぐに開発が始められます。
-
-### ✅ 特徴
+### 特徴
 
 - `Vite` サーバーが `0.0.0.0:3000` にバインドされており、外部（ローカルブラウザ）からアクセス可能
 - `docker-compose` によりポート 3000 がホスト（EC2）とフォワード済み
@@ -30,7 +26,7 @@ Vite + TypeScript + Tailwind CSS + ShadCN UI によって、モダンで高速�
 
 ---
 
-## 🔧 開発手順（EC2 上で）
+## 開発手順（EC2 上で）
 
 1. VSCode + Remote-SSH で EC2 に接続
 2. VSCode 上で Devcontainer が自動起動
